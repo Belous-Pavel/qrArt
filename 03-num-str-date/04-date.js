@@ -12,42 +12,41 @@
 
 // const now = new Date();
 
-let mode = 'full';
-const output = document.getElementById('output');
-const fullBtn = document.getElementById('full');
-const dateBtn = document.getElementById('date');
-const timeBtn = document.getElementById('time');
+let mode = 'full'
+const output = document.getElementById('output')
+const fullBtn = document.getElementById('full')
+const dateBtn = document.getElementById('date')
+const timeBtn = document.getElementById('time')
 
 function bindMode(name) {
   return function () {
-    mode = name;
-    update();
-  };
+    mode = name
+    update()
+  }
 }
 
-fullBtn.onclick = bindMode('full');
+fullBtn.onclick = bindMode('full')
 
-dateBtn.onclick = bindMode('date');
+dateBtn.onclick = bindMode('date')
 
-timeBtn.onclick = bindMode('time');
+timeBtn.onclick = bindMode('time')
 
-setInterval(update, 1000);
-update();
+setInterval(update, 1000)
 
 function update() {
-  output.textContent = format(mode);
+  output.textContent = format(mode)
 }
 
 function format(formatMode) {
-  const now = new Date();
+  const now = new Date()
   switch (formatMode) {
     case 'time':
-      return now.toLocaleTimeString();
+      return now.toLocaleTimeString()
     case 'date':
-      return now.toLocaleDateString();
+      return now.toLocaleDateString()
     case 'full':
-      return now.toLocaleDateString() + ' ' + now.toLocaleTimeString();
+      return now.toLocaleDateString() + ' ' + now.toLocaleTimeString()
     default:
-      return now.toLocaleTimeString;
+      return now.toLocaleTimeString
   }
 }
